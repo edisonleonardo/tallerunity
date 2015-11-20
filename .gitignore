@@ -7,6 +7,7 @@
 !/ProjectSettings/
 !.gitignore
 !/build/
+!/Cookie/
 
 # OS Stuff
 .DS_Store
