@@ -6,8 +6,6 @@
 !/Assets/
 !/ProjectSettings/
 !.gitignore
-!/Temp/
-!/Library/
 
 # OS Stuff
 .DS_Store
@@ -18,3 +16,5 @@ ehthumbs.db
 Thumbs.db
 $RECYCLE.BIN/
 Desktop.ini
+/Temp/
+/Library/
