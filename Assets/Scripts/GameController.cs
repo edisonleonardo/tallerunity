@@ -6,16 +6,32 @@ public class GameController : MonoBehaviour {
 
 	public GameObject superCookie;
 	private GameObject activeSuperCookie;
-
+	private bool created;
 	// Use this for initialization
 	void Start () {
-		activeSuperCookie = Instantiate (superCookie);
+		createInstance ();
 		StartCoroutine (ScheduleCoookieDestroy ());
 	}
 	
 	IEnumerator ScheduleCoookieDestroy(){
 		yield return new  WaitForSeconds (3.0f);
-		Destroy (activeSuperCookie);
+		if (created) {
+			destroyInstance();
+		}else{
+			createInstance();
+		}
+		StartCoroutine (ScheduleCoookieDestroy ());
 	}
 
+	private void createInstance()
+	{
+		activeSuperCookie = Instantiate (superCookie);
+		created = true;
+	}
+
+	private void destroyInstance()
+	{
+		Destroy (activeSuperCookie);
+		created = false;
+	}
 }
