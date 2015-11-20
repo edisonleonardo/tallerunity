@@ -4,7 +4,8 @@ using System.Collections;
 public class Character : MonoBehaviour {
 
 	private Rigidbody rb;
-	public float speed;
+	//public float speed;
+	public GameSettings gsettings;
 
 	// Use this for initialization
 	void Start () {
@@ -18,12 +19,12 @@ public class Character : MonoBehaviour {
 
 	// se llama la funcion fixedupdate en un tiempo fijo configurable, recomendado para llamar fisicas
 	void FixedUpdate(){
-		float moveHorizontal = max(Input.GetAxis("Horizontal"), Input.GetAxis("Mouse X"));
-		float moveVertical = max(Input.GetAxis("Vertical"), Input.GetAxis("Mouse Y"));
+		float moveHorizontal = max(Input.GetAxis("Horizontal"), Input.GetAxis("Mouse X")*3);
+		float moveVertical = max(Input.GetAxis("Vertical"), Input.GetAxis("Mouse Y")*3);
 
 
 		Vector3 movment = new Vector3 (moveHorizontal, 0.0f, moveVertical);
-		rb.AddForce (movment * speed);
+		rb.AddForce (movment * gsettings.CharacterSpeed);
 
 	}
 
